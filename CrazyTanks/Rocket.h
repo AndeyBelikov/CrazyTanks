@@ -1,17 +1,18 @@
 #pragma once
 #include "World.h"
 #include "Direction.h"
+#include "DestructableObject.h"
 
-class Rocket
+class Rocket :
+	public DestructableObject
 {
 public:	
 	Rocket();
 	~Rocket();
 	int x;
 	int y;
-	char owner;
 	Direction direction;
-	Rocket(int, int, Direction, const char);
+	Rocket(int, int, Direction);
 	void logic(World&);
 };
 

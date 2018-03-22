@@ -15,7 +15,8 @@ World::~World()
 
 void World::drawWorld()
 {
-	system("cls");
+	Sleep(100);
+	clearScreen();
 	for (int i = 0; i < heigth; i++) {
 		for (int j = 0; j < width; j++)
 			std::cout << arr[i][j];
@@ -46,6 +47,7 @@ void World::makeWorld()
 		arr[width - 1][i] = '#';
 
 	makeWalls();
+	makeCastle();
 
 	// describe the player position
 	arr[heigth - 3][width / 2] = '0';
@@ -64,7 +66,7 @@ void World::makeWalls()
 	// coordinateDist - random wall coordinate
 	std::uniform_int_distribution<int> coordinateDist(1, 19);
 
-	// count of horizontal / vertical alls
+	// count of horizontal / vertical walls
 	int nHorizontalWalls = countDist(mt) + 7;
 	int nVerticalWalls = countDist(mt) + 7;
 
@@ -76,7 +78,7 @@ void World::makeWalls()
 		int distance = countDist(mt);
 
 		for (int i = 0; i < distance; i++) {
-			if (arr[xx + 1][yy] != '#' && xx < heigth && yy < width) {
+			if (arr[xx + 1][yy] != '#' && xx < heigth - 1 && yy < width) {
 				arr[xx++][yy] = '#';
 			}
 		}
@@ -91,10 +93,57 @@ void World::makeWalls()
 		int distance = countDist(mt);
 
 		for (int i = 0; i < distance; i++) {
-			if (arr[xx][yy + 1] != '#' && distance != 0 && xx < heigth && yy < width) {
+			if (arr[xx][yy + 1] != '#' && distance != 0 && xx < heigth - 1 && yy < width) {
 				arr[xx][yy++] = '#';
 			}
 		}
 
+	}
+}
+
+void World::makeCastle()
+{
+	arr[17][1] = '#';
+	arr[17][2] = '#';
+	arr[18][2] = '#';
+	arr[18][1] = 'G';
+}
+
+void World::clearScreen()
+{
+	{
+		HANDLE                     hStdOut;
+		CONSOLE_SCREEN_BUFFER_INFO csbi;
+		DWORD                      count;
+		DWORD                      cellCount;
+		COORD                      homeCoords = { 0, 0 };
+
+		hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
+		if (hStdOut == INVALID_HANDLE_VALUE) return;
+
+		/* Get the number of cells in the current buffer */
+		if (!GetConsoleScreenBufferInfo(hStdOut, &csbi)) return;
+		cellCount = csbi.dwSize.X *csbi.dwSize.Y;
+
+		/* Fill the entire buffer with spaces */
+		if (!FillConsoleOutputCharacter(
+			hStdOut,
+			(TCHAR) ' ',
+			cellCount,
+			homeCoords,
+			&count
+			)) return;
+
+		/* Fill the entire buffer with the current colors and attributes */
+		if (!FillConsoleOutputAttribute(
+			hStdOut,
+			csbi.wAttributes,
+			cellCount,
+			homeCoords,
+			&count
+			)) return;
+
+		/* Move the cursor home */
+		SetConsoleCursorPosition(hStdOut, homeCoords);
 	}
 }

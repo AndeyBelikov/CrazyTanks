@@ -11,7 +11,7 @@ public:
 	Direction direction;
 	int numberOfSteps;
 	int maxNumberOfSteps;
-	void logic(World&) override;
+	void move(World&) override;
 	void placeInTheWorld(int, int) override;
 	void shoot(World&) override;
 	Direction makeRundomDir();

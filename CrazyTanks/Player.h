@@ -11,9 +11,8 @@ public:
 	int score;
 	Direction direction;
 	void input(World&);
-	void logic(World& world) override;
+	void move(World& world) override;
 	void placeInTheWorld(int, int) override;
 	void shoot(World&) override;
-
 };
 

@@ -118,22 +118,39 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BorderLine.cpp" />
+    <ClCompile Include="DestructableObject.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Field.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Gold.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Rocket.cpp" />
     <ClCompile Include="Tank.cpp" />
+    <ClCompile Include="UndestructableObject.cpp" />
+    <ClCompile Include="Wall.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BorderLine.h" />
+    <ClInclude Include="DestructableObject.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Field.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Gold.h" />
+    <ClInclude Include="IDestroyable.h" />
+    <ClInclude Include="IMovable.h" />
+    <ClInclude Include="IShootable.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Rocket.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Tank.h" />
+    <ClInclude Include="UndestructableObject.h" />
+    <ClInclude Include="Wall.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>

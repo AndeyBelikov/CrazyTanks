@@ -3,9 +3,18 @@
 Game::Game()
 {
 	this->numberOfEnemies = 4;
+	this->numberOfGold = 1;
+
 	for (int i = 0; i < numberOfEnemies; i++) {
-		enemies.push_back(new Enemy);
-		//enemies.push_back(std::make_unique<Enemy>);
+		//enemies.push_back(new Enemy);
+		std::shared_ptr<Enemy> sharedptr(new Enemy);
+		enemies.push_back(std::move(sharedptr));
+	}
+
+	for (int i = 0; i < numberOfGold; i++) {
+		//enemies.push_back(new Enemy);
+		std::shared_ptr<Gold> sharedptr(new Gold);
+		golds.push_back(std::move(sharedptr));
 	}
 }
 
@@ -48,7 +57,7 @@ void Game::startTheGame() {
 
 		player->input(world);
 
-		player->logic(world);
+		player->move(world);
 
 		//std::for_each(rockets.begin(), rockets.end(), [this] (auto _val) mutable
 		//{
@@ -57,7 +66,7 @@ void Game::startTheGame() {
 
 		std::for_each(enemies.begin(), enemies.end(), [this] (auto _val) mutable
 		{
-			_val->logic(world);
+			_val->move(world);
 		});
 	}
 }
@@ -65,5 +74,5 @@ void Game::startTheGame() {
 
 
 bool Game::gameStatus() {
-	return (player->isAlive() && !enemies.empty()) ? true : false;
+	return (player->isAlive() && !enemies.empty() && !golds.empty()) ? true : false;
 }

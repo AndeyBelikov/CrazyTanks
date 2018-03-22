@@ -8,9 +8,8 @@ Rocket::Rocket()
 
 
 
-Rocket::Rocket(int x, int y, Direction dir, const char ch)
+Rocket::Rocket(int x, int y, Direction dir)
 {
-	this->owner = ch;
 	this->x = x;
 	this->y = y;
 	this->direction = dir;

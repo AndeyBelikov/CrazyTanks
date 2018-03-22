@@ -17,7 +17,7 @@ Enemy::~Enemy()
 
 
 
-void Enemy::logic(World& world)
+void Enemy::move(World& world)
 {
 	world.arr[y][x] = 'X';
 
@@ -120,7 +120,7 @@ void Enemy::placeInTheWorld(int height, int width)
 
 void Enemy::shoot(World& world)
 {
-	this->rockets.push_back(new Rocket(x, y, direction, 'X'));
+	this->rockets.push_back(new Rocket(x, y, direction));
 }
 
 

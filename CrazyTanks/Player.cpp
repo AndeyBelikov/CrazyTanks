@@ -50,7 +50,7 @@ void Player::input(World& world)
 // check next position. if # / X - stop moving
 // else make next move
 
-void Player::logic(World &world)
+void Player::move(World &world)
 {
 	switch (direction) {
 		case Direction::LEFT : {
@@ -123,6 +123,8 @@ void Player::placeInTheWorld(int height, int width)
 
 void Player::shoot(World& world)
 {
-	this->rockets.push_back(new Rocket(x, y, direction, '0'));
+	this->rockets.push_back(new Rocket(x, y, direction));
 }
+
+
 
