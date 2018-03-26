@@ -1,5 +1,6 @@
 #pragma once
 
+#include <thread>
 #include "Player.h"
 #include "Enemy.h"
 #include "Rocket.h"
@@ -7,34 +8,29 @@
 #include "Wall.h"
 #include "Gold.h"
 
-#include <vector>
-#include <memory>
-#include <algorithm>
-#include <thread>
-#include <chrono>
-#include <Windows.h>
-
 
 class Game
 {
 public:
 	Game();
-	World world;
-	//std::shared_ptr<World> world = std::shared_ptr<World>(new World);
-	// i made shared_ptr because of logic that i delete later
-
-
-	std::shared_ptr<Player> player = std::shared_ptr<Player>(new Player);
-	//std::vector<Enemy*> enemies;
-	std::vector<std::shared_ptr<Enemy>> enemies;
-	std::vector<std::shared_ptr<Wall>> walls;
-	std::vector<std::shared_ptr<Gold>> golds;
-
+	~Game();
+	void checkWall(World&, Wall*);
+	void popWall(int, int);
 	bool gameStatus();
-	int numberOfEnemies;
-	int numberOfGold;
 	void startTheGame();
 	static void timeInGame();
-	~Game();
+	void makeWalls();
+	void makeCastle();
+	bool checkEnemy(World&, Enemy*);
+	void popEnemy(int, int);
+
+private:
+	int numberOfEnemies;
+	int numberOfGold;
+	World world;
+	std::shared_ptr<Player> player = std::shared_ptr<Player>(new Player);
+	std::vector<Enemy*> enemies;
+	std::vector<Wall*> walls;
+	std::vector<Gold*> golds;
 };
 

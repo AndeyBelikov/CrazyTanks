@@ -1,5 +1,5 @@
 #pragma once
-#include "World.h"
+
 #include "Direction.h"
 #include "DestructableObject.h"
 
@@ -13,6 +13,6 @@ public:
 	int y;
 	Direction direction;
 	Rocket(int, int, Direction);
-	void logic(World&);
+	//void logic(World&);
 };
 

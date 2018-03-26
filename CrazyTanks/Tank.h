@@ -4,9 +4,10 @@
 #include "Direction.h"
 #include "Rocket.h"
 #include "DestructableObject.h"
-#include <vector>
 #include "IMovable.h"
 #include "IShootable.h"
+
+#include <vector>
 
 
 class Tank :
@@ -16,11 +17,12 @@ class Tank :
 {
 
 public:
-	virtual void placeInTheWorld(int, int) = 0;
+	virtual void placeInTheWorld(int, int, World&) = 0;
 	virtual void shoot(World&) = 0;
 	virtual void move(World&) = 0;
 	std::vector<Rocket*> rockets;
 	Direction direction;
+	Direction rocketDir;
 	Tank();
 	virtual ~Tank();
 };

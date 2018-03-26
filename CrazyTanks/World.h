@@ -1,8 +1,6 @@
 #pragma once
 #include <random>
 #include <iostream>
-#include <Windows.h>
-#include <conio.h>
 
 class World
 {
@@ -13,8 +11,6 @@ public:
 
 	void drawWorld();
 	void makeWorld();
-	void makeWalls();
-	void makeCastle();
 	void clearScreen();
 	World();
 	~World();

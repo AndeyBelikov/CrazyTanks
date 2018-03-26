@@ -1,6 +1,5 @@
 #pragma once
 #include "Tank.h"
-#include "World.h"
 
 class Enemy :
 	public Tank
@@ -8,12 +7,15 @@ class Enemy :
 public:
 	Enemy();
 	~Enemy();
-	Direction direction;
-	int numberOfSteps;
-	int maxNumberOfSteps;
 	void move(World&) override;
-	void placeInTheWorld(int, int) override;
+	void placeInTheWorld(int, int, World&) override;
 	void shoot(World&) override;
+	void logic(World&);
+	void popRocket(int, int);
 	Direction makeRundomDir();
+
+private:
+	int numberOfSteps = 0;
+	int maxNumberOfSteps = 0;
 };
 

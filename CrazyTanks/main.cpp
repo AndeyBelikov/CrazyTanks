@@ -7,6 +7,8 @@
 #include "Game.h"
 
 int main() {
-	Game *game = new Game();
-	game->startTheGame();
+	Game game;
+	game.startTheGame();
+
+	return 0;
 }
