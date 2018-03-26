@@ -10,7 +10,7 @@ Wall::Wall(int y, int x)
 {
 	this->y = y;
 	this->x = x;
-	this->health = 2;
+	setHealth(2);
 }
 
 

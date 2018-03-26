@@ -26,5 +26,15 @@ bool DestructableObject::isAlive()
 	return this->health > 0 ? true : false;
 }
 
+int DestructableObject::getHealth()
+{
+	return health;
+}
+
+void DestructableObject::setHealth(int h)
+{
+	health = h;
+}
+
 
 

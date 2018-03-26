@@ -12,8 +12,9 @@ public:
 	void destroy() override;
 	void takeDamage() override;
 	bool isAlive();
-
+	int getHealth();
+	void setHealth(int);
+private:
 	int health;
-	//bool isAlive;
 };
 

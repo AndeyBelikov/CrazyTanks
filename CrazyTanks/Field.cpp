@@ -4,7 +4,6 @@
 
 Field::Field()
 {
-	this->name = ' ';
 }
 
 

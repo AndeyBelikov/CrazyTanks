@@ -5,7 +5,7 @@
 
 Enemy::Enemy()
 {
-	this->health = 1;
+	setHealth(1);
 	this->numberOfSteps = 0;
 	this->maxNumberOfSteps = 7;
 }

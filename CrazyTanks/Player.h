@@ -7,7 +7,7 @@ class Player :
 public:	
 	Player();
 	~Player();
-	void popRocket(int, int);
+	void popRocket(int, int) override;
 	void input(World&);
 	void move(World& world) override;
 	void placeInTheWorld(int, int, World&) override;

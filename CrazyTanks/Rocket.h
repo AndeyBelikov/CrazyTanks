@@ -13,6 +13,5 @@ public:
 	int y;
 	Direction direction;
 	Rocket(int, int, Direction);
-	//void logic(World&);
 };
 

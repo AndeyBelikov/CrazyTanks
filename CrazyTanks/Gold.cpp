@@ -4,7 +4,6 @@
 
 Gold::Gold()
 {
-	this->name = 'G';
 }
 
 

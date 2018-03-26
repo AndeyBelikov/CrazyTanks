@@ -20,6 +20,7 @@ public:
 	virtual void placeInTheWorld(int, int, World&) = 0;
 	virtual void shoot(World&) = 0;
 	virtual void move(World&) = 0;
+	virtual void popRocket(int, int) = 0;
 	std::vector<Rocket*> rockets;
 	Direction direction;
 	Direction rocketDir;

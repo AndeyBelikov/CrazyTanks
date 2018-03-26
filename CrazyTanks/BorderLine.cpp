@@ -4,7 +4,6 @@
 
 BorderLine::BorderLine()
 {
-	this->name = '#';
 }
 
 

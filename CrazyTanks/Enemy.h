@@ -11,7 +11,7 @@ public:
 	void placeInTheWorld(int, int, World&) override;
 	void shoot(World&) override;
 	void logic(World&);
-	void popRocket(int, int);
+	void popRocket(int, int) override;
 	Direction makeRundomDir();
 
 private:

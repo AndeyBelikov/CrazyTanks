@@ -7,7 +7,7 @@
 
 Player::Player()
 {
-	this->health = 3;
+	setHealth(3);
 	this->score = 0;
 	this->direction = Direction::STOP;
 }
